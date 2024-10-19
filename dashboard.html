@@ -9,9 +9,9 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: rgb(32, 32, 32);
+            background-color: rgb(43, 43, 43); /* Restored dark theme */
         }
-        
+
         /* Hamburger Menu */
         .hamburger {
             position: absolute;
@@ -27,15 +27,15 @@
 
         .hamburger div {
             width: 100%;
-            height: 5px;
-            background-color: purple;
+            height: 4px;
+            background-color: magenta;
         }
 
         /* Sidebar Styling */
         .sidebar {
             height: 100vh;
             width: 250px;
-            background-color: rgb(32, 32, 32);
+            background-color: rgb(43, 43, 43);
             position: fixed;
             top: 0;
             left: -250px;
@@ -46,7 +46,7 @@
         }
 
         .sidebar a {
-            color: purple;
+            color: lightpurple;
             text-decoration: none;
             padding: 10px 0;
         }
@@ -76,15 +76,15 @@
         }
 
         .tab-buttons button {
-            background-color: rgb(32, 32, 32);
-            color: purple;
-            border: 1px solid purple;
+            background-color: rgb(43, 43, 43);
+            color: magenta;
+            border: 1px solid magenta;
             padding: 10px 20px;
             cursor: pointer;
         }
 
         .tab-buttons button:hover {
-            background-color: purple;
+            background-color: magenta;
             color: white;
         }
 
@@ -128,13 +128,13 @@
 
         <!-- Dashboard Content -->
         <div class="tab-content active" id="dashboard">
-            <h1>Dashboard</h1>
-            <p>Welcome to your dashboard!</p>
+            <h1 style="color: magenta;">Dashboard</h1>
+            <p style="color: white;">Welcome to your dashboard!</p>
         </div>
 
         <!-- License Keys Content -->
         <div class="tab-content" id="licenseKeys">
-            <h1>License Keys</h1>
+            <h1 style="color: magenta;">License Keys</h1>
             <button>Create Keys</button>
             <button>Delete Key</button>
             <button>Blacklist User</button>
@@ -142,14 +142,14 @@
 
         <!-- Settings Content -->
         <div class="tab-content" id="settings">
-            <h1>Settings</h1>
-            <p>Adjust your settings here.</p>
+            <h1 style="color: magenta;">Settings</h1>
+            <p style="color: white;">Adjust your settings here.</p>
         </div>
 
         <!-- Profile Content -->
         <div class="tab-content" id="profile">
-            <h1>Profile</h1>
-            <p>Edit your profile here.</p>
+            <h1 style="color: magenta;">Profile</h1>
+            <p style="color: white;">Edit your profile here.</p>
         </div>
     </div>
 
