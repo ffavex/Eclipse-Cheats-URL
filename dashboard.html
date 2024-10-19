@@ -1,51 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScriptGuard™ Dashboard</title>
-    <link rel="stylesheet" href="dashboard.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Dashboard</title>
+    <style>
+        /* General Styling */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: rgb(32, 32, 32);
+        }
+        
+        /* Hamburger Menu */
+        .hamburger {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hamburger div {
+            width: 100%;
+            height: 5px;
+            background-color: purple;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            height: 100vh;
+            width: 250px;
+            background-color: rgb(32, 32, 32);
+            position: fixed;
+            top: 0;
+            left: -250px;
+            transition: left 0.3s;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .sidebar a {
+            color: purple;
+            text-decoration: none;
+            padding: 10px 0;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 0;
+            transition: margin-left 0.3s;
+            padding: 20px;
+        }
+
+        /* Mobile-Friendly Styling */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+            }
+        }
+
+        /* Tab Buttons */
+        .tab-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .tab-buttons button {
+            background-color: rgb(32, 32, 32);
+            color: purple;
+            border: 1px solid purple;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .tab-buttons button:hover {
+            background-color: purple;
+            color: white;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
 </head>
-
 <body>
-    <div class="sidebar">
-        <h2>ScriptGuard™</h2>
-        <ul>
-            <li><a href="dashboard.html" class="active">Dashboard</a></li>
-            <li><a href="#">Created Scripts</a></li>
-            <li><a href="#">License Keys</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Log Out</a></li>
-        </ul>
+
+    <!-- Hamburger Icon -->
+    <div class="hamburger" onclick="toggleSidebar()">
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
 
-    <div class="main-content">
-        <header>
-            <h1>Welcome to your Dashboard</h1>
-        </header>
-
-        <section class="cards">
-            <div class="card">
-                <h3>Created Scripts</h3>
-                <p>Manage your existing scripts or create new ones.</p>
-                <button>Create Script</button>
-            </div>
-
-            <div class="card">
-                <h3>License Management</h3>
-                <p>View, create, and manage license keys.</p>
-                <button>Manage Licenses</button>
-            </div>
-
-            <div class="card">
-                <h3>Settings</h3>
-                <p>Customize your dashboard preferences and settings.</p>
-                <button>Update Settings</button>
-            </div>
-        </section>
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+        <a href="#" onclick="openTab('dashboard')">Dashboard</a>
+        <a href="#" onclick="openTab('licenseKeys')">License Keys</a>
+        <a href="#" onclick="openTab('settings')">Settings</a>
+        <a href="#" onclick="openTab('profile')">Profile</a>
+        <a href="#">Log Out</a>
     </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <div class="tab-buttons">
+            <button onclick="openTab('dashboard')">Dashboard</button>
+            <button onclick="openTab('licenseKeys')">License Keys</button>
+            <button onclick="openTab('settings')">Settings</button>
+            <button onclick="openTab('profile')">Profile</button>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div class="tab-content active" id="dashboard">
+            <h1>Dashboard</h1>
+            <p>Welcome to your dashboard!</p>
+        </div>
+
+        <!-- License Keys Content -->
+        <div class="tab-content" id="licenseKeys">
+            <h1>License Keys</h1>
+            <button>Create Keys</button>
+            <button>Delete Key</button>
+            <button>Blacklist User</button>
+        </div>
+
+        <!-- Settings Content -->
+        <div class="tab-content" id="settings">
+            <h1>Settings</h1>
+            <p>Adjust your settings here.</p>
+        </div>
+
+        <!-- Profile Content -->
+        <div class="tab-content" id="profile">
+            <h1>Profile</h1>
+            <p>Edit your profile here.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('mainContent');
+            if (sidebar.style.left === '-250px') {
+                sidebar.style.left = '0';
+                mainContent.style.marginLeft = '250px';
+            } else {
+                sidebar.style.left = '-250px';
+                mainContent.style.marginLeft = '0';
+            }
+        }
+
+        function openTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+
 </body>
-
 </html>
