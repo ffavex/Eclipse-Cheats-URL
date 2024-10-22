@@ -35,7 +35,7 @@
             if (data.approximate_member_count) {
                 const memberCount = data.approximate_member_count;
                 // Update the member count in the HTML
-                document.getElementById('discord-member-count').innerText = `${memberCount}+`;
+                document.getElementById('discord-member-count').innerText = `${memberCount}`;
             }
         } catch (error) {
             console.error('Error fetching Discord member count for server 1:', error);
@@ -50,7 +50,7 @@
             if (data.approximate_member_count) {
                 const memberCount = data.approximate_member_count;
                 // Update the member count in the HTML
-                document.getElementById('discord-member-count2').innerText = `${memberCount}+`;
+                document.getElementById('discord-member-count2').innerText = `${memberCount}`;
             }
         } catch (error) {
             console.error('Error fetching Discord member count for server 2:', error);
