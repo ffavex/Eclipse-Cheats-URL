@@ -27,7 +27,8 @@
             return false;
         }
     }  // Fetch member count using Discord API
-    async function updateMemberCountt() {
+    // Function to update the member count for the first server
+    async function updateMemberCount1() {
         try {
             const response = await fetch('https://discord.com/api/v9/invites/nMqYCXsYvn?with_counts=true');
             const data = await response.json();
@@ -37,13 +38,12 @@
                 document.getElementById('discord-member-count').innerText = `${memberCount}+`;
             }
         } catch (error) {
-            console.error('Error fetching Discord member count:', error);
+            console.error('Error fetching Discord member count for server 1:', error);
         }
     }
-    // Call the function on page load
-    window.onload = updateMemberCountt;
-    
-    async function updateMemberCount() {
+
+    // Function to update the member count for the second server
+    async function updateMemberCount2() {
         try {
             const response = await fetch('https://discord.com/api/v9/invites/CeNV7kWynF?with_counts=true');
             const data = await response.json();
@@ -53,12 +53,15 @@
                 document.getElementById('discord-member-count2').innerText = `${memberCount}+`;
             }
         } catch (error) {
-            console.error('Error fetching Discord member count:', error);
+            console.error('Error fetching Discord member count for server 2:', error);
         }
     }
 
-    // Call the function on page load
-    window.onload = updateMemberCount;
+    // Call both functions on page load
+    window.onload = function() {
+        updateMemberCount1();
+        updateMemberCount2();
+    };
 </script>
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
