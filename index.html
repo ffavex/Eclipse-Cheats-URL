@@ -71,7 +71,7 @@
     <html lang="pt-br">
     <meta charset="UTF-8">
     <meta property="og:title" content="ScriptGuard™">
-    <meta property="og:description" content="#1 LUA Obfuscator & Authenticator.">
+    <meta property="og:description" content="Cheapest #1 LUA Obfuscator & Authenticator.">
     <meta property="og:image" content="W">
     <meta property="og:url" content="https://scriptguard.com">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -450,6 +450,20 @@
             transition: 2s;
             cursor: pointer;
         }
+          .rainbow-text {
+            font-weight: bold;
+            background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow 3s infinite;
+        }
+
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
     </style>
     </head>
 
@@ -528,7 +542,7 @@
             <div class="col-lg-4 col-md-6 col-xs-12 col-sm-10">
                 <div class="services-item1 text-center">
                     <h4>Developers</h4>
-                    <p> Developed by patrick & vzexi.
+                    <p>2.
                     </p>
                     <h4>2</h4>
 
@@ -552,7 +566,14 @@
 
 
 
-
+      <div class="bottom-bar">
+        <div class="left-side">
+            Developed by <a href="#" class="rainbow-text">@vzexi</a>
+        </div>
+        <div class="right-side">
+            &copy; Remedy Softworks 2024
+        </div>
+    </div>
 
 <script src="bootstrap.js"></script>
 <script>
